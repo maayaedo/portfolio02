@@ -1,0 +1,523 @@
+@charset "utf-8";
+html {
+    scroll-behavior: smooth;
+}
+body {
+    line-height: 1.5;
+    font-size: 18px;
+    font-family:  "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+    color: #525252;
+	animation: fadein 2.5s forwards;
+}
+@keyframes fadein{
+	0%{opacity: 0}
+	100%{opacity: 100%}
+}
+
+/* パソコンで見たときは"pc"のclassがついた画像が表示される */
+.pc { display: block !important; }
+.sp { display: none !important; }
+ 
+/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+@media only screen and (max-width: 680px) {
+    .pc { display: none !important; }
+    .sp { display: block !important; }
+}
+
+
+/* トップページボタン　*/
+.pagetop {
+  height: 80px;
+  width: 80px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  background: #00aeff;
+  border: solid 2px #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  opacity: 60%;
+}
+.pagetop__arrow {
+  height: 10px;
+  width: 10px;
+  border-top: 3px solid #ffffff;
+  border-right: 3px solid #ffffff;
+  transform: translateY(20%) rotate(-45deg);
+}
+@media screen and (max-width: 680px) {
+  .pagetop {
+    height: 60px;
+    width: 60px;
+    right: 10px;
+  }
+}
+
+/* --- header --- */
+header {
+  display: flex;
+  padding: 5px 0 0;
+  position: fixed;
+  top:-200px;
+  width: 100%;
+  height: auto;
+  z-index: 10000;
+  opacity: 90%;
+  transition: .8s;
+  background: #f5f5f5;
+}
+
+
+header img {
+  padding:5px 15px 5px;
+}
+header h2{
+  font-family: serif;
+  margin-top:13px;
+  margin-left:0;
+}
+@media screen and (max-width: 680px) {
+header h2{
+  width:100%;
+  font-size: 22px;
+}
+}
+
+
+header a {
+  text-decoration: none;
+  color: #646464;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+}
+@media screen and (max-width: 680px) {
+  header a {
+    font-size: 24px;
+  }
+  }
+.header-logo-wrapper{
+  margin: 0 auto;
+  width:57%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media screen and (max-width: 680px) {
+  .header-logo-wrapper{
+    width: 90%;
+  }
+}
+
+.hamburger {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+@media screen and (max-width: 680px) {
+.hamburger {
+  width: 30%;
+}
+}
+
+
+.hamburger .btn-gNav {
+  position: fixed;
+  top: 8px;
+  right: 20px;
+  width: 30px;
+  height: 24px;
+  z-index: 12;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+}
+
+.hamburger .btn-gNav span {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #313131;
+  border-radius: 10px;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+}
+
+.hamburger .btn-gNav span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger .btn-gNav span:nth-child(2) {
+  top: 10px;
+}
+
+.hamburger .btn-gNav span:nth-child(3) {
+  top: 20px;
+}
+
+.hamburger .btn-gNav.open span:nth-child(1) {
+  background: #ffffff;
+  top: 6px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.hamburger .btn-gNav.open span:nth-child(2),
+.hamburger .btn-gNav.open span:nth-child(3) {
+  top: 6px;
+  background: #ffffff;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.btn-gNav.active span:nth-of-type(1) {
+  top: 6px;
+  left: 2px;
+  transform: translateY(0) rotate(-45deg);
+  width: 100%;
+}
+
+.btn-gNav.active span:nth-of-type(2) {
+opacity: 0;
+}
+
+.btn-gNav.active span:nth-of-type(3){
+  top: 6px;
+  left: 2px;
+  transform: translateY(0) rotate(45deg);
+  width: 100%;
+}
+
+.btn-gNav {
+  display: none;
+}
+
+.gNav{
+  display: flex;
+}
+
+.gNav .gNav-menu {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  list-style-type: none;
+  margin-right: 15px;
+}
+@media screen and (max-width: 680px) {
+.gNav .gNav-menu {
+  margin: 0;}
+}
+.gNav .gNav-menu li {
+  margin: 0 auto;
+  padding: 3px 23px;
+  color: #464646;
+  border-right: #868686 1px solid;
+}
+@media screen and (max-width: 880px) {
+  .gNav .gNav-menu li {
+    display: block;
+    border-right: none;
+  }
+}
+
+.gNav .gNav-menu img{
+  margin-top: 5%;
+  padding: 0 7%;
+  border-right: 1px solid #cccccc;
+}
+
+@media screen and (max-width: 680px) {
+  .btn-gNav {
+      display: block;
+  }
+
+  .gNav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(248, 248, 248, 1);
+      font-size: 16px;
+      box-sizing: border-box;
+      z-index: 1;
+      padding-top: 65px;
+      transition: .3s;
+  }
+
+  .gNav.open {
+      right: 0;
+  }
+
+  .gNav .gNav-menu {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      flex-direction: column;
+      text-align: center;
+      /*justify-content: center;*/
+  }
+
+  .gNav .gNav-menu li {
+      width: 70%;
+      padding: 15px;
+      border-bottom: #b1b1b1 1px solid;
+  }
+}
+.gNav .gNav-menu li:nth-child(n+7){
+  border: none;
+}
+.gNav a.active{
+  color: #1b85ff;
+}
+/* ---- ここまでheader ---- */
+
+/* main */
+hr{
+    width: 70%;
+    margin-bottom: 8em;
+}
+article h1{
+    margin-top: 7em;
+}
+@media screen and (max-width: 680px) {
+hr{
+  width: 85%;
+  margin: 0 auto 4em;
+}
+article h1{
+  font-size:26px;
+  margin: 5em 0 0;
+}
+}
+
+/*===モーダル表示のためのcss*/
+
+.hide-area{/*モーダル表示をする場所をあらかじめ隠す*/
+    display: none;
+    margin-top: 100px;
+  }
+  
+  .modaal-fullscreen .modaal-content-container{/*full画面の色設定*/
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding-top:150px;
+  }
+  
+  .modaal-fullscreen .modaal-close{/*ボタンの色、位置*/
+    background:none;
+    margin:100px 40px 0 0;
+  }
+  
+  /*クローズボタンの×の色変更*/
+  .modaal-close:focus:after,
+  .modaal-close:focus:before,
+  .modaal-close:hover:after,
+  .modaal-close:hover:before{
+    background:#666;
+  }
+  .modaal-fullscreen img{
+    width: 100%;
+  }
+  
+  /*キャプション*/
+  .caption{
+      display: block;
+      font-size: 20px;
+      padding: 20px 0;
+  }
+  
+  /*===　サムネイル表示のためのcss　*/
+  
+  .gallery{/*ベースになるギャラリーを横並びに*/
+    display: flex;
+      flex-wrap: wrap;
+      margin-left: 3%;
+      padding: 0;
+      list-style: none;
+  }
+  
+  .gallery li{
+    width:22.222%;
+      padding: 5px 10px;
+  }
+  @media screen and (max-width: 680px) {
+  .gallery li{
+    width:44%;
+      padding: 5px 10px;
+  }
+}
+
+  
+  /*画像の横幅を100%にしてレスポンシブ化*/
+  .gallery img{
+    max-width:100%;
+    height:auto;
+    vertical-align: bottom;/*画像の下にできる余白を削除*/
+  }
+  
+  /*========= レイアウトのためのCSS ===============*/
+  
+  a{
+    color: #1d1d1d;
+  }
+  
+ li a:hover,
+  li a:active{
+    text-decoration: none;
+    opacity: 0.7;
+    transition: 0.4s;
+  }
+
+  h1{
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin:0;
+  }
+  .wrapper-images hr{
+    margin:9em auto 2em;
+  }
+
+
+/* サイトトップボタン */
+button {
+    background-color: #3540d8;
+    border: #3540d8;
+    color: white;
+    padding: 10px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 33%;
+    margin-top: 0;
+    margin-bottom:0;
+    margin-left: 35%;
+    cursor: pointer;
+}
+@media screen and (max-width: 680px) {
+button {
+  width: 60%;
+  padding: 7px 10px;
+  font-size: 16px;
+  margin:25% 20% 0;
+}
+}
+
+button:hover {
+  box-shadow: 0 0 20px rgba(132, 137, 177, 0.9);
+  transition: 0.5s;
+}
+
+/* footer */
+footer{
+	width: 100%;
+	height: auto;
+  font-family: serif;
+	background: #373737;
+  	padding: 50px 0 70px;
+    margin: 5em auto 0;
+}
+@media screen and (max-width: 680px) {
+  footer{
+  text-align: center;
+  }
+}
+.footer-menu{
+  display: flex;
+  margin:3% 5% 5%;
+}
+@media screen and (max-width: 680px) {
+.footer-menu{
+  margin:3% 5% 3%;
+  text-align: left;
+}
+}
+.footer-menu01,.footer-menu02,.footer-menu03{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.footer-menu01 li,.footer-menu02 li,.footer-menu03 li{
+  padding: 10px 50px 10px ;
+}
+@media screen and (max-width: 680px) {
+.footer-menu01 li,.footer-menu02 li,.footer-menu03 li{
+  padding: 10px 10px 0 10px;
+}
+}
+.footer-menu01 li a,.footer-menu02 li a,.footer-menu03 li a{
+  color: #fdffec;
+  font-size: 20px;
+}
+@media screen and (max-width: 680px) {
+.footer-menu01 li a,.footer-menu02 li a,.footer-menu03 li a{
+  font-size: 18px;
+}
+}
+/* --- ここからsnsコンテンツ --- */
+.sns{
+  margin:0 auto 90px;
+}
+@media screen and (max-width: 680px) {
+.sns{
+  margin: 50px auto;
+}
+}
+
+.sns ul {
+  list-style-type: none;
+  padding: 40px 20px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sns ul li a{
+  display:block;
+  padding: 0 30px; 
+}
+@media screen and (max-width: 680px) {
+.sns ul li a{
+  padding: 0 40px; 
+}
+}
+.sns ul li a:hover{
+  opacity: 0.7;
+} 
+/* --- ここまでsnsコンテンツ --- */
+footer p{
+	font-family: serif;
+	font-size: 20px;
+    line-height: 2em;
+    color: #fdffec;
+	text-align: center;
+}
+@media screen and (max-width: 680px) {
+footer p{
+	font-size: 18px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

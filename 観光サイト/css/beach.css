@@ -1,0 +1,792 @@
+@charset "utf-8";
+html {
+    scroll-behavior: smooth;
+}
+body {
+    line-height: 1.5;
+    font-size: 16px;
+    font-family:  "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+    color: #525252;
+	animation: fadein 2.5s forwards;
+}
+@keyframes fadein{
+	0%{opacity: 0}
+	100%{opacity: 100%}
+}
+
+/* パソコンで見たときは"pc"のclassがついた画像が表示される */
+.pc { display: block !important; }
+.sp { display: none !important; }
+ 
+/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+@media only screen and (max-width: 680px) {
+    .pc { display: none !important; }
+    .sp { display: block !important; }
+}
+
+/* トップページボタン　*/
+.pagetop {
+  height: 80px;
+  width: 80px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  background: #00aeff;
+  border: solid 2px #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  opacity: 60%;
+}
+.pagetop__arrow {
+  height: 10px;
+  width: 10px;
+  border-top: 3px solid #ffffff;
+  border-right: 3px solid #ffffff;
+  transform: translateY(20%) rotate(-45deg);
+}
+@media screen and (max-width: 680px) {
+  .pagetop {
+    height: 60px;
+    width: 60px;
+    right: 10px;
+  }
+}
+
+/* header */
+header {
+  display: flex;
+  padding: 5px 0 0;
+  position: fixed;
+  top:-200px;
+  width: 100%;
+  height: auto;
+  z-index: 10000;
+  opacity: 90%;
+  transition: .8s;
+  background: #f5f5f5;
+}
+
+
+header img {
+  padding:5px 15px 5px;
+}
+header h2{
+  font-family: serif;
+  margin-top:13px;
+  margin-left:0;
+}
+@media screen and (max-width: 680px) {
+header h2{
+  width:100%;
+  font-size: 22px;
+}
+}
+
+
+header a {
+  text-decoration: none;
+  color: #646464;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+}
+@media screen and (max-width: 680px) {
+  header a {
+    font-size: 24px;
+  }
+  }
+.header-logo-wrapper{
+  margin: 0 auto;
+  width:57%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media screen and (max-width: 680px) {
+  .header-logo-wrapper{
+    width: 90%;
+  }
+}
+
+.hamburger {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+@media screen and (max-width: 680px) {
+.hamburger {
+  width: 30%;
+}
+}
+
+
+.hamburger .btn-gNav {
+  position: fixed;
+  top: 8px;
+  right: 20px;
+  width: 30px;
+  height: 24px;
+  z-index: 12;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+}
+
+.hamburger .btn-gNav span {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #313131;
+  border-radius: 10px;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+}
+
+.hamburger .btn-gNav span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger .btn-gNav span:nth-child(2) {
+  top: 10px;
+}
+
+.hamburger .btn-gNav span:nth-child(3) {
+  top: 20px;
+}
+
+.hamburger .btn-gNav.open span:nth-child(1) {
+  background: #ffffff;
+  top: 6px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.hamburger .btn-gNav.open span:nth-child(2),
+.hamburger .btn-gNav.open span:nth-child(3) {
+  top: 6px;
+  background: #ffffff;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.btn-gNav.active span:nth-of-type(1) {
+  top: 6px;
+  left: 2px;
+  transform: translateY(0) rotate(-45deg);
+  width: 100%;
+}
+
+.btn-gNav.active span:nth-of-type(2) {
+opacity: 0;
+}
+
+.btn-gNav.active span:nth-of-type(3){
+  top: 6px;
+  left: 2px;
+  transform: translateY(0) rotate(45deg);
+  width: 100%;
+}
+
+.btn-gNav {
+  display: none;
+}
+
+.gNav{
+  display: flex;
+}
+
+.gNav .gNav-menu {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  list-style-type: none;
+  margin-right: 15px;
+}
+@media screen and (max-width: 680px) {
+.gNav .gNav-menu {
+  margin: 0;}
+}
+.gNav .gNav-menu li {
+  margin: 0 auto;
+  padding: 3px 23px;
+  color: #464646;
+  border-right: #868686 1px solid;
+}
+@media screen and (max-width: 880px) {
+  .gNav .gNav-menu li {
+    display: block;
+    border-right: none;
+  }
+}
+
+.gNav .gNav-menu img{
+  margin-top: 5%;
+  padding: 0 7%;
+  border-right: 1px solid #cccccc;
+}
+
+@media screen and (max-width: 680px) {
+  .btn-gNav {
+      display: block;
+  }
+
+  .gNav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(248, 248, 248, 1);
+      font-size: 16px;
+      box-sizing: border-box;
+      z-index: 1;
+      padding-top: 65px;
+      transition: .3s;
+  }
+
+  .gNav.open {
+      right: 0;
+  }
+
+  .gNav .gNav-menu {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      flex-direction: column;
+      text-align: center;
+      /*justify-content: center;*/
+  }
+
+  .gNav .gNav-menu li {
+      width: 70%;
+      padding: 15px;
+      border-bottom: #b1b1b1 1px solid;
+  }
+}
+.gNav .gNav-menu li:nth-child(n+7){
+  border: none;
+}
+.gNav a.active{
+  color: #1b85ff;
+}
+/* ---- ここまでheader ---- */
+
+/* main */
+.top-images h1{
+    font-family: sunserif;
+    margin:7em 0 0;
+    text-align: center;
+}
+.top-images hr{
+  width: 70%;
+  margin-bottom: 12em;
+}
+@media screen and (max-width: 680px) {
+.top-images h1{
+  font-size: 28px;
+  margin:4em 0 0;
+}
+.top-images hr{
+width: 85%;
+margin-bottom: 4em;
+}
+}
+
+/* ---- スライドのためのcss ---- */
+
+.swiper-button-prev{
+  margin-left: 0;
+}
+.swiper-button-next{
+  margin-right: 0;
+}
+/*--- ここまでスライド ---*/
+
+.top-images p{
+  text-align: left;
+  margin: 10% 10% 0;
+  line-height: 2em;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+}
+@media screen and (max-width: 680px) {
+.top-images p{
+font-size: 18px;
+}
+}
+
+/* ---- 島へのアクセスボタン ---- */
+.accesspage{
+  background-color: #3540d8;
+  border: #3540d8;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  width: 30%;
+  margin: 5% 0 5% 50%;
+  cursor: pointer;
+}
+@media screen and (max-width: 680px) {
+  .accesspage{
+    width: 70%;
+    margin: 5% 15% 20%;
+  }
+}
+/* ---- ここまで ---- */
+
+
+
+/* ---- ここからコンテンツ辰の島について ---- */
+.top-content{
+  background: url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B202).png?raw=true"),url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B2).png?raw=true");
+  background-repeat: no-repeat;
+  background-size:190px 90px,40px 20px;
+  background-position:20% 10%,90% 10%;
+  background-color:rgba(255,255,255,0.5);
+  background-blend-mode:lighten;
+}
+@media screen and (max-width: 680px) {
+.top-content{
+background: url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B202).png?raw=true"),url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B2).png?raw=true");
+background-repeat: no-repeat;
+background-size:150px 70px,40px 20px;
+background-position:8% 38%,80% 65%;
+background-color:rgba(255,255,255,0.5);
+background-blend-mode:lighten;
+}
+}
+.top-content h2{
+  text-align: center;
+  margin:5em 0 0;
+  }
+  @media screen and (max-width: 680px) {
+.top-content h2{
+  margin:4em 0 1em;
+  }
+  }
+
+  .top-content-wrapp{
+    display: flex;
+    justify-content: center;
+    margin:5% 15% 10%;
+    }
+    @media screen and (max-width: 680px) {
+    .top-content-wrapp{
+      display: flex;
+      flex-direction: column;
+      margin:5% 0 5%;
+      }
+    }
+    .top-content-wrapp img{
+      margin: 5% 0 0 0;
+    }
+    @media screen and (max-width: 680px) {
+    .top-content-wrapp img{
+      margin: 0  5% 5%;
+    }
+    }
+
+    .top-content-wrapp p{
+      font-size: 18px;
+      text-align: left;
+      letter-spacing: 2px;
+      line-height: 1.7em;
+      margin:5% 5% 10% 10%;
+    }
+    @media screen and (max-width: 680px) {
+    .top-content-wrapp p{
+      font-size: 18px;
+      width: 90%;
+      margin: 5% 5% 5%;
+    }
+    }
+
+/* tatunoshima */
+.tatunoshima {
+    width: 70%;
+    border-collapse: collapse;
+    letter-spacing: 1px;
+    margin: 0 15% 20%;
+  }
+  @media screen and (max-width: 680px) {
+  .tatunoshima {
+    width: 90%;
+    margin: 0 5% 20%;
+  }
+}
+  .tatunoshima tr *:nth-child(1){
+    background: #49c5f0;
+  }
+  
+  .tatunoshima tr *:nth-child(2){
+    background: #57b3e8;
+  }
+  
+  .tatunoshima tr *:nth-child(3){
+    background: #649cdf;
+  }
+  
+  .tatunoshima tr *:nth-child(4){
+    background: #6e87d7;
+  }
+
+.tatunoshima th,.tatunoshima td{
+  color:white;
+  font-size: 18px;
+  border:solid 1px white;
+  text-align: center;
+  padding: 10px 0;
+}
+/* ---- ここまでコンテンツ辰の島について ---- */
+
+.top-content hr{
+  width: 70%;
+}
+@media screen and (max-width: 680px) {
+.top-content hr{
+  width: 85%;
+}
+}
+/* ---- ここからコンテンツ筒城浜について ---- */
+.middle-content{
+  background: url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B202).png?raw=true"),url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B2).png?raw=true");
+  background-repeat: no-repeat;
+  background-size:190px 90px,40px 20px;
+  background-position:20% 10%,90% 10%;
+  background-color:rgba(255,255,255,0.5);
+  background-blend-mode:lighten;
+}
+@media screen and (max-width: 680px) {
+.middle-content{
+background: url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B202).png?raw=true"),url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B2).png?raw=true");
+background-repeat: no-repeat;
+background-size:150px 70px,40px 20px;
+background-position:8% 38%,80% 65%;
+background-color:rgba(255,255,255,0.5);
+background-blend-mode:lighten;
+}
+}
+.middle-content h2{
+  text-align: center;
+  margin:5em 0 0;
+  }
+  @media screen and (max-width: 680px) {
+.middle-content h2{
+  margin:4em 0 1em;
+  }
+  }
+
+  .middle-content-wrapp{
+    display: flex;
+    justify-content: center;
+    margin:5% 15% 10%;
+    }
+    @media screen and (max-width: 680px) {
+    .middle-content-wrapp{
+      display: flex;
+      flex-direction: column-reverse;
+      margin:5% 0 5%;
+      }
+    }
+    .middle-content-wrapp img{
+      margin: 5% 0 0 0;
+    }
+    @media screen and (max-width: 680px) {
+    .middle-content-wrapp img{
+      margin: 0  5% 5%;
+    }
+    }
+
+    .middle-content-wrapp p{
+      font-size: 18px;
+      text-align: left;
+      letter-spacing: 2px;
+      line-height: 1.7em;
+      margin:5% 10% 10% 5%;
+    }
+    @media screen and (max-width: 680px) {
+    .middle-content-wrapp p{
+      font-size: 18px;
+      width: 90%;
+      margin: 5% 5% 5%;
+    }
+    }
+/* tutuki */
+.tutuki {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 0 15% 20%;
+  }
+  @media screen and (max-width: 680px) {
+  .tutuki {
+    width: 90%;
+    margin: 0 5% 20%;
+  }
+}
+  .tutuki tr *:nth-child(1){
+    background: #49c5f0;
+  }
+  
+  .tutuki tr *:nth-child(2){
+    background: #57b3e8;
+  }
+  
+  .tutuki tr *:nth-child(3){
+    background: #649cdf;
+  }
+  
+  .tutuki tr *:nth-child(4){
+    background: #6e87d7;
+  }
+
+.tutuki th,.tutuki td{
+  color:white;
+  border:solid 1px white;
+  text-align: center;
+  padding: 10px 0;
+}
+/* ---- ここまでコンテンツ筒城浜について ---- */
+.middle-content hr{
+  width: 70%;
+}
+@media screen and (max-width: 680px) {
+.middle-content hr{
+  width: 85%;
+}
+}
+
+/* ---- ここからコンテンツ錦浜について ---- */
+.bottom-content{
+  background:url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B202).png?raw=true"),url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B2).png?raw=true");
+  background-repeat: no-repeat;
+  background-size:230px 100px,50px 20px;
+  background-position:90% 10%,85% 80%;
+  background-color:rgba(255,255,255,0.5);
+  background-blend-mode:lighten;
+}
+@media screen and (max-width: 680px) {
+  .bottom-content{
+background: url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B202).png?raw=true"),url("https://github.com/maayaedo/portfolio/blob/main/%E8%A6%B3%E5%85%89%E3%82%B5%E3%82%A4%E3%83%88/images/%E9%AD%9A%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3(%E5%8D%98%E8%89%B2).png?raw=true");
+background-repeat: no-repeat;
+background-size:150px 70px,40px 20px;
+background-position:8% 38%,80% 65%;
+background-color:rgba(255,255,255,0.5);
+background-blend-mode:lighten;
+}
+}
+.bottom-content h2{
+  text-align: center;
+  margin:5em 0 0;
+  }
+  @media screen and (max-width: 680px) {
+  .bottom-content h2{
+  margin:4em 0 1em;
+  }
+  }
+
+  .bottom-content-wrapp{
+    display: flex;
+    justify-content: center;
+    margin:5% 15% 10%;
+    }
+    @media screen and (max-width: 680px) {
+    .bottom-content-wrapp{
+      display: flex;
+      flex-direction: column;
+      margin:5% 0 5%;
+      }
+    }
+    .bottom-content-wrapp img{
+      margin: 5% 0 0 0;
+    }
+    @media screen and (max-width: 680px) {
+    .bottom-content-wrapp img{
+      margin: 0  5% 5%;
+    }
+    }
+
+    .bottom-content-wrapp p{
+      font-size: 18px;
+      text-align: left;
+      letter-spacing: 2px;
+      line-height: 1.7em;
+      margin:5% 5% 10% 10%;
+    }
+    @media screen and (max-width: 680px) {
+    .bottom-content-wrapp p{
+      font-size: 18px;
+      width: 90%;
+      margin: 5% 5% 5%;
+    }
+    }
+ 
+    
+/* nisikihama */
+.nisikihama {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 0 15% 20%;
+  }
+  @media screen and (max-width: 680px) {
+  .nisikihama {
+    width: 90%;
+    margin: 0 5% 20%;
+  }
+}
+  .nisikihama tr *:nth-child(1){
+    background: #49c5f0;
+  }
+  
+  .nisikihama tr *:nth-child(2){
+    background: #57b3e8;
+  }
+  
+  .nisikihama tr *:nth-child(3){
+    background: #649cdf;
+  }
+  
+  .nisikihama tr *:nth-child(4){
+    background: #6e87d7;
+  }
+
+.nisikihama th,.nisikihama td{
+  color:white;
+  border:solid 1px white;
+  text-align: center;
+  padding: 10px 0;
+}
+/* ---- ここまでコンテンツ錦浜について ---- */
+
+.bottom-content hr{
+  width: 65%;
+}
+@media screen and (max-width: 680px) {
+.bottom-content hr{
+  width: 85%;
+}
+}
+
+/* サイトトップボタン */
+button {
+    background-color: #3540d8;
+    border: #3540d8;
+    color: white;
+    padding: 10px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 30%;
+    margin: 10% 35% 10%;
+    cursor: pointer;
+}
+@media screen and (max-width: 680px) {
+button{
+  width: 60%;
+  margin: 10% 20% 15%;
+}
+}
+button:hover {
+  box-shadow: 0 0 20px rgba(132, 137, 177, 0.9);
+  transition: 0.5s;
+}
+
+
+/* footer */
+footer{
+	width: 100%;
+	height: auto;
+  font-family: serif;
+	background: #373737;
+  	padding: 50px 0 70px;
+    margin: 3em auto 0;
+}
+@media screen and (max-width: 680px) {
+  footer{
+  text-align: center;
+  margin: 2em auto 0;
+  }
+}
+.footer-menu{
+  display: flex;
+  margin:3% 5% 5%;
+}
+@media screen and (max-width: 680px) {
+.footer-menu{
+  margin:3% 5% 3%;
+  text-align: left;
+}
+}
+.footer-menu01,.footer-menu02,.footer-menu03{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.footer-menu01 li,.footer-menu02 li,.footer-menu03 li{
+  padding: 10px 50px 10px ;
+}
+@media screen and (max-width: 680px) {
+.footer-menu01 li,.footer-menu02 li,.footer-menu03 li{
+  padding: 10px 10px 0 10px;
+}
+}
+.footer-menu01 li a,.footer-menu02 li a,.footer-menu03 li a{
+  color: #fdffec;
+  font-size: 20px;
+}
+@media screen and (max-width: 680px) {
+.footer-menu01 li a,.footer-menu02 li a,.footer-menu03 li a{
+  font-size: 18px;
+}
+}
+/* --- ここからsnsコンテンツ --- */
+.sns{
+  margin:0 auto 90px;
+}
+@media screen and (max-width: 680px) {
+.sns{
+  margin: 50px auto;
+}
+}
+
+.sns ul {
+  list-style-type: none;
+  padding: 40px 20px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sns ul li a{
+  display:block;
+  padding: 0 30px; 
+}
+@media screen and (max-width: 680px) {
+.sns ul li a{
+  padding: 0 40px; 
+}
+}
+.sns ul li a:hover{
+  opacity: 0.7;
+} 
+/* --- ここまでsnsコンテンツ --- */
+footer p{
+	font-family: serif;
+	font-size: 20px;
+    line-height: 2em;
+    color: #fdffec;
+	text-align: center;
+}
+@media screen and (max-width: 680px) {
+footer p{
+	font-size: 18px;
+}
+}
